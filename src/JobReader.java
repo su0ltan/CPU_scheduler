@@ -19,6 +19,7 @@ public class JobReader implements java.lang.Runnable {
 
 	}
 
+	//This function will be executes continously with different thread
 	public synchronized void loadJobsToReadyQueue() {
 		while (true) {
 			if (!jobsQueue.isEmpty()) {
@@ -29,11 +30,14 @@ public class JobReader implements java.lang.Runnable {
 				} else {
 					System.out.println("Not enough memory for Job " + job.getProcessID() + ". Skipping.");
 					
+					
 				}
 			}
 		}
 	}
 
+	
+	//this function is to check the buffer size 
 	private boolean checkMemoryAvailability(int jobSize) {
 		if (availableMemory > 8192)
 			return false;
@@ -48,24 +52,31 @@ public class JobReader implements java.lang.Runnable {
 		this.readyQueue = readyQueue;
 	}
 
+	//by calling the Thread this function will be execute
 	@Override
 	public void run() {
 
 		BufferedReader br;
 		try {
+			//to read from file
 			FileReader fr = new FileReader(fileBath);
 			br = new BufferedReader(fr);
 			String line = br.readLine();
 
+			
+			//getting the file data line by line
 			while ((line = br.readLine()) != null) {
 				if (line.contains(",")) {
 					line = line.trim();
 
+					//the data formal as: 3, 4, 5;
 					String[] temJob = line.split(", ");
 
+					//create job or process
 					PCB pcb = new PCB(Integer.parseInt(temJob[0]), Integer.parseInt(temJob[1]),
 							Integer.parseInt(temJob[2]));
 
+					//adding the job to the list
 					jobsQueue.add(pcb);
 					availableMemory = availableMemory + pcb.getMemoryRequired();
 					

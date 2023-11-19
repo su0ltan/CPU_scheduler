@@ -3,7 +3,12 @@ public class PCB {
 
 	private int processID;
 	private String processState;
-	public int burstTime;
+	private int burstTime, remainingBurstTime;
+
+	public void setBurstTime(int burstTime) {
+		this.burstTime = burstTime;
+	}
+
 	private int memoryRequired;
 	private int waitingTime, completionTime;
 
@@ -23,15 +28,23 @@ public class PCB {
 		return memoryRequired;
 	}
 
+	public int getRemainingBurstTime() {
+		return remainingBurstTime;
+	}
+
+	public void setRemainingBurstTime(int remainingBurstTime) {
+		this.remainingBurstTime = remainingBurstTime;
+	}
+
 	public PCB(int processID, int burstTime, int memoryRequired) {
 		super();
 		this.processID = processID;
 		this.processState = "new";
 		this.burstTime = burstTime;
+		this.remainingBurstTime = burstTime;
 		this.memoryRequired = memoryRequired;
-		waitingTime =completionTime= 0;
-		
-		
+		waitingTime = completionTime = 0;
+
 	}
 
 	public int getWaitingTime() {
@@ -52,9 +65,8 @@ public class PCB {
 
 	public void print() {
 		System.out.println("Process ID: " + getProcessID() + " process burst time: " + getBurstTime()
-				+ " Memory requires: " + getMemoryRequired()
-				+ "\nWaiting time for the job: " + getWaitingTime()
-				+ "\nCompletion time needed: "+ getCompletionTime());
+				+ " Memory requires: " + getMemoryRequired() + "\nWaiting time for the job: " + getWaitingTime()
+				+ "\nCompletion time needed: " + getCompletionTime());
 	}
 
 }

@@ -25,31 +25,49 @@ public class main {
 		fileReaderThread.start();
 		jobLoadertoReady.start();
 
-		// making the user who choose the alogirthm
-		System.out.println("********************************");
-		System.out.println("Choose from the following the Algorithm");
-		System.out.println(" 1- First Come First Serve (FCFS)");
-		System.out.println(" 2- Shortest Job First (SJF)");
-		System.out.println(" 3- Round Robin with quantum time 3ms");
-		System.out.println(" 4- Round Robin with quantum time 5ms");
-		System.out.println("Enter -1 to Exit");
-		Scanner input = new Scanner(System.in);
-		int r = input.nextInt();
-		BlockingQueue<PCB> jobReady = jobReader.getReadyQueue();
-		switch (r) {
-		case 1:
-			FCFS fcfs = new FCFS();
-			
-			fcfs.processing(jobReady);
+		int r = 0;
+		while (r != -1) {
+			// making the user who choose the alogirthm
+			System.out.println("********************************");
+			System.out.println("Choose from the following the Algorithm");
+			System.out.println(" 1- First Come First Serve (FCFS)");
+			System.out.println(" 2- Shortest Job First (SJF)");
+			System.out.println(" 3- Round Robin with quantum time 3ms");
+			System.out.println(" 4- Round Robin with quantum time 5ms");
+			System.out.println("Enter -1 to Exit");
+			Scanner input = new Scanner(System.in);
+			r = input.nextInt();
+			BlockingQueue<PCB> jobReady = jobReader.getReadyQueue();
+			switch (r) {
+			case 1:
+				FCFS fcfs = new FCFS();
 
-			break;
-		case 2:
-			SJF sjf = new SJF();
-			sjf.processing(jobReady);
+				fcfs.processing(jobReady);
+
+				break;
+			case 2:
+				SJF sjf = new SJF();
+				sjf.processing(jobReady);
+				break;
+
+			case 3:
+				RR rr3 = new RR();
+				rr3.processing(jobReady, 3);
+				break;
+			case 4:
+				RR rr5 = new RR();
+				rr5.processing(jobReady, 5);
+				break;
+			case -1:
+
+				input.close();
+				return;
+			default:
+				System.out.println("Enter valid value");
+
+			}
 
 		}
-
-		input.close();
 
 	}
 
