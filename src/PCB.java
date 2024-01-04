@@ -4,12 +4,13 @@ public class PCB {
 	private int processID;
 	private String processState;
 	private int burstTime, remainingBurstTime;
+	private int memoryRequired;
 
 	public void setBurstTime(int burstTime) {
 		this.burstTime = burstTime;
 	}
 
-	private int memoryRequired;
+	
 	private int waitingTime, completionTime;
 
 	public int getProcessID() {
@@ -45,6 +46,10 @@ public class PCB {
 		this.memoryRequired = memoryRequired;
 		waitingTime = completionTime = 0;
 
+	}
+
+	public void setProcessState(String processState) {
+		this.processState = processState;
 	}
 
 	public int getWaitingTime() {
