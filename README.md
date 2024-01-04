@@ -1,5 +1,13 @@
 # CPU Scheduler
 
+## Table of Contents
+
+- [Overview](#Overview)
+- [Algorithms Implemented](#Algorithms Implemented)
+- [Project Structure](#Project Structure)
+- [Installation](#installation)
+
+## Overview
 This project is a multithreading CPU scheduler designed for concurrent manipulation of different processes. It was developed as part of the CS227 Operating System course, providing an opportunity to explore various scheduling algorithms.
 
 ## Algorithms Implemented
@@ -16,3 +24,11 @@ This project is a multithreading CPU scheduler designed for concurrent manipulat
 - `src/`: Contains the source code for the CPU scheduler.
 - `doc/`: Documentation files for the project.
 - `tests/`: Test cases and sample input files.
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/su0ltan/CPU_scheduler.git
+cd CPU_scheduler
