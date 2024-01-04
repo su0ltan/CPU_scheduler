@@ -3,8 +3,8 @@
 ## Table of Contents
 
 - [Overview](#Overview)
-- [Algorithms Implemented]
-- [Project Structure]
+- [Algorithms Implemented](#Algorithms_Implemented)
+- [Project Structure](#Project_Structure)
 - [Installation](#installation)
 
 ## Overview
