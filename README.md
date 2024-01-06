@@ -8,7 +8,7 @@
 - [Installation](#installation)
 
 ## Overview
-<img width="300" alt="image" src="https://github.com/su0ltan/CPU_scheduler/assets/53498277/dc1dba54-7012-461c-be8d-28fc640b4e96">
+<img width="500" alt="image" src="https://github.com/su0ltan/CPU_scheduler/assets/53498277/dc1dba54-7012-461c-be8d-28fc640b4e96">
 
 This project is a multithreading CPU scheduler designed for concurrent manipulation of different processes. It was developed as part of the CS227 Operating System course, providing an opportunity to explore various scheduling algorithms.
 
